@@ -1,18 +1,37 @@
-import com.hcl.DrinksDAO;
-import com.hcl.DrinksDAOImpl;
-import com.hcl.DrinksDTO;
-
-import java.util.List;
+import com.hcl.drinks.DrinksEntity;
+import com.hcl.hibernate.HibernateUtils;
+import org.hibernate.Session;
 
 public class Main {
+    static Session hibernateSession;
+
     public static void main(String[] args) {
-        DrinksDAO drinksDAO = new DrinksDAOImpl();
-        drinksDAO.create(new DrinksDTO(
-                "orange juice",
-                true
-        ));
-        List<DrinksDTO> drinks = drinksDAO.getAll();
-        drinks.forEach((d) -> System.out.println(d.toString()));
+        try {
+            hibernateSession = HibernateUtils
+                    .buildSessionFactory()
+                    .openSession();
+            hibernateSession.beginTransaction();
+
+
+            for (int i = 0; i <= 10; i++) {
+                DrinksEntity drinks = new DrinksEntity();
+                drinks.setName("Drink" + i);
+                drinks.setIs_good(true);
+                drinks.setPrice(10F * i);
+                hibernateSession.save(drinks);
+            }
+
+            hibernateSession.getTransaction().commit();
+        } catch(Exception sqlException) {
+            if (null != hibernateSession.getTransaction()) {
+                hibernateSession.getTransaction().rollback();
+            }
+            sqlException.printStackTrace();
+        } finally {
+            if (hibernateSession != null) {
+                hibernateSession.close();
+            }
+        }
 
     }
 }
