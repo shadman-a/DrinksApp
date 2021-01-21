@@ -1,5 +1,4 @@
 # Drinks App
-________
 
 ### Write-Up
 
