@@ -1,11 +1,11 @@
 package com.hcl.hibernate;
 
 
+import com.hcl.drinks.DrinksEntity;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
-import com.hcl.drinks.DrinksEntity;
 
 public class HibernateUtils {
 

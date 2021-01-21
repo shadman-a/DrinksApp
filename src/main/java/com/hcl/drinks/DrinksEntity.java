@@ -11,7 +11,7 @@ public class DrinksEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     @Column(name = "id")
-    private long id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -20,21 +20,13 @@ public class DrinksEntity implements Serializable {
     private Boolean is_good;
 
     @Column(name = "price")
-    private float price;
+    private Float price;
 
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -52,5 +44,13 @@ public class DrinksEntity implements Serializable {
 
     public void setIs_good(Boolean is_good) {
         this.is_good = is_good;
+    }
+
+    public Float getPrice() {
+        return price;
+    }
+
+    public void setPrice(Float price) {
+        this.price = price;
     }
 }

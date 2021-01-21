@@ -39,7 +39,7 @@ public class DrinkDetailsServlet extends HttpServlet {
                 Long.parseLong(drinkId)
         );
         if (drinksEntity != null) {
-            out.println("Found drink: " + drinksEntity.getName() + " with price: " + drinksEntity.getPrice());
+            out.println("Found drink: " + drinksEntity.getName() + " with price: " + drinksEntity.getPrice() + " is it good: " + drinksEntity.getIs_good());
         } else {
             out.println("No drink found for id: " + drinkId);
         }

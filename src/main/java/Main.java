@@ -3,6 +3,7 @@ import com.hcl.hibernate.HibernateUtils;
 import org.hibernate.Session;
 
 public class Main {
+
     static Session hibernateSession;
 
     public static void main(String[] args) {
